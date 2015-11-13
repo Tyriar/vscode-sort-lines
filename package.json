@@ -1,0 +1,51 @@
+{
+  "name": "sort-lines",
+  "displayName": "Sort lines",
+  "description": "Sorts lines of text",
+  "version": "0.0.1",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tyriar/vscode-sort-lines/issues"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "homepage": "https://github.com/Tyriar/vscode-sort-lines/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tyriar/vscode-sort-lines"
+  },
+  "publisher": "Daniel Imms",
+  "engines": {
+    "vscode": "0.10.x"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:sortLines.sortLines",
+    "onCommand:sortLines.sortLinesReverse",
+    "onCommand:sortLines.sortLinesCaseInsensitive"
+  ],
+  "main": "./lib/main",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sortLines.sortLines",
+        "title": "Sort lines"
+      },
+      {
+        "command": "sortLines.sortLinesReverse",
+        "title": "Sort lines (reverse)"
+      },
+      {
+        "command": "sortLines.sortLinesCaseInsensitive",
+        "title": "Sort lines (case insensitive)"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vscode": "0.10.x",
+    "mocha": "~2.3.3"
+  }
+}
