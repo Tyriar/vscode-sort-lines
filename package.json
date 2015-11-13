@@ -42,7 +42,12 @@
         "command": "sortLines.sortLinesCaseInsensitive",
         "title": "Sort lines (case insensitive)"
       }
-    ]
+    ],
+    "keybindings": [{
+      "command": "sortLines.sortLines",
+      "key": "f9",
+      "when": "editorTextFocus"
+    }]
   },
   "devDependencies": {
     "vscode": "0.10.x",
