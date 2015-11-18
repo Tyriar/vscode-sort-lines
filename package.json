@@ -10,7 +10,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "homepage": "https://github.com/Tyriar/vscode-sort-lines/blob/master/README.md",
+  "homepage": "https://github.com/Tyriar/vscode-sort-lines",
   "repository": {
     "type": "git",
     "url": "https://github.com/Tyriar/vscode-sort-lines"
