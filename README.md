@@ -1,13 +1,14 @@
-# README
-## This is the README for your extension "vscode-sort-lines" 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+# vscode-sort-lines
 
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
+Sort lines in Visual Studio Code.
 
-### For more information
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+## Install
 
-** Enjoy!**
+1. Press F1
+2. Type "install"
+3. Select "Pick Extensions: Install Extension".
+4. Select sort-lines from the list 
+
+## Usage
+
+Select the lines to sort, press F1 type sort and select the desired sort. The regular sort has the default hotkey F9. 
