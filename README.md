@@ -1,13 +1,14 @@
-# vscode-sort-lines
+# Functionality
 
-Sort lines in Visual Studio Code.
+Sort lines of text in Visual Studio Code.
 
 ## Install
 
-1. Press F1
-2. Type "install"
-3. Select "Pick Extensions: Install Extension".
-4. Select sort-lines from the list 
+1. Open VS Code
+2. Press F1
+3. Type "install"
+4. Select "Extensions: Install Extension".
+5. Select sort-lines from the list 
 
 ## Usage
 
