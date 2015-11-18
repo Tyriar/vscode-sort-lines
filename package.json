@@ -53,5 +53,5 @@
     "vscode": "0.10.x",
     "mocha": "~2.3.3"
   },
-  "icon": "icon.png"
+  "icon": "images/icon.png"
 }
