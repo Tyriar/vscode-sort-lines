@@ -1,6 +1,10 @@
 # Functionality
 
-Sort lines of text in Visual Studio Code.
+Sort lines of text in Visual Studio Code. The following types of sorting are supported:
+
+- `Sort lines` - Regular character code based sort
+- `Sort lines (reverse)` - Reverse character code based sort
+- `Sort lines (case insensitive)` - Case insensitive sort
 
 ## Install
 
@@ -10,10 +14,10 @@ Sort lines of text in Visual Studio Code.
 4. Select "Extensions: Install Extension".
 5. Select sort-lines from the list 
 
-![](images/install-animation.gif)
+![Install animation](images/install-animation.gif)
 
 ## Usage
 
 Select the lines to sort, press F1 type sort and select the desired sort. The regular sort has the default hotkey F9. 
 
-![](images/usage-animation.gif)
+![Usage animation](images/usage-animation.gif)
