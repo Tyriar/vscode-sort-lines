@@ -2,7 +2,7 @@
   "name": "sort-lines",
   "displayName": "Sort lines",
   "description": "Sorts lines of text",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Tyriar/vscode-sort-lines/issues"
@@ -25,7 +25,8 @@
   "activationEvents": [
     "onCommand:sortLines.sortLines",
     "onCommand:sortLines.sortLinesReverse",
-    "onCommand:sortLines.sortLinesCaseInsensitive"
+    "onCommand:sortLines.sortLinesCaseInsensitive",
+    "onCommand:sortLines.sortLinesUnique"
   ],
   "main": "./lib/main",
   "contributes": {
@@ -41,6 +42,10 @@
       {
         "command": "sortLines.sortLinesCaseInsensitive",
         "title": "Sort lines (case insensitive)"
+      },
+      {
+        "command": "sortLines.sortLinesUnique",
+        "title": "Sort lines (unique)"
       }
     ],
     "keybindings": [{
