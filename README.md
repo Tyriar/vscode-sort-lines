@@ -4,8 +4,9 @@ Sort lines of text in Visual Studio Code. The following types of sorting are sup
 
 - `Sort lines` - Regular character code based sort (F9)
 - `Sort lines (case insensitive)` - Case insensitive sort
+- `Sort lines (line length)` - Sort lines by line length
 - `Sort lines (reverse)` - Reverse character code based sort
-- `Sort lines (unique)` - Regular character code  keeping only unique items
+- `Sort lines (unique)` - Regular character code keeping only unique items
 
 # Install
 

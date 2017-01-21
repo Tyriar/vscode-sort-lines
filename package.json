@@ -26,6 +26,7 @@
     "onCommand:sortLines.sortLines",
     "onCommand:sortLines.sortLinesReverse",
     "onCommand:sortLines.sortLinesCaseInsensitive",
+    "onCommand:sortLines.sortLinesLineLength",
     "onCommand:sortLines.sortLinesUnique"
   ],
   "main": "./lib/main",
@@ -42,6 +43,10 @@
       {
         "command": "sortLines.sortLinesCaseInsensitive",
         "title": "Sort lines (case insensitive)"
+      },
+      {
+        "command":"sortLines.sortLinesLineLength",
+        "title": "Sort lines (line length)"
       },
       {
         "command": "sortLines.sortLinesUnique",
