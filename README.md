@@ -7,9 +7,9 @@ Sort lines of text in Visual Studio Code. The following types of sorting are sup
 - `Sort lines (line length)` - Sort lines by line length
 - `Sort lines (reverse)` - Reverse character code based sort
 - `Sort lines (unique)` - Regular character code keeping only unique items
-- `Sort lines (random)` - Sort lines randomly
+- `Sort lines (shuffle)` - Shuffles the lines randomly
 
-# Install
+# Install`
 
 1. Open VS Code
 2. Press F1
