@@ -27,7 +27,8 @@
     "onCommand:sortLines.sortLinesReverse",
     "onCommand:sortLines.sortLinesCaseInsensitive",
     "onCommand:sortLines.sortLinesLineLength",
-    "onCommand:sortLines.sortLinesUnique"
+    "onCommand:sortLines.sortLinesUnique",
+    "onCommand:sortLines.sortLinesRandom"
   ],
   "main": "./lib/main",
   "contributes": {
@@ -51,7 +52,11 @@
       {
         "command": "sortLines.sortLinesUnique",
         "title": "Sort lines (unique)"
-      }
+      },
+      {
+				"command": "sortLines.sortLinesRandom",
+				"title": "Sort lines (random)"
+			}
     ],
     "keybindings": [{
       "command": "sortLines.sortLines",
