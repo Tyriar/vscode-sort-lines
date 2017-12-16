@@ -35,15 +35,15 @@
     "commands": [
       {
         "command": "sortLines.sortLines",
-        "title": "Sort lines"
-      },
-      {
-        "command": "sortLines.sortLinesReverse",
-        "title": "Sort lines (reverse)"
+        "title": "Sort lines (ascending, case sensitive)"
       },
       {
         "command": "sortLines.sortLinesCaseInsensitive",
-        "title": "Sort lines (case insensitive)"
+        "title": "Sort lines (ascending, case insensitive)"
+      },
+      {
+        "command": "sortLines.sortLinesReverse",
+        "title": "Sort lines (descending, case sensitive)"
       },
       {
         "command":"sortLines.sortLinesLineLength",
@@ -51,7 +51,7 @@
       },
       {
         "command": "sortLines.sortLinesUnique",
-        "title": "Sort lines (unique)"
+        "title": "Sort lines (unique ascending, case sensitive)"
       },
       {
 				"command": "sortLines.sortLinesShuffle",
