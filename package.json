@@ -27,6 +27,7 @@
     "onCommand:sortLines.sortLinesReverse",
     "onCommand:sortLines.sortLinesCaseInsensitive",
     "onCommand:sortLines.sortLinesLineLength",
+    "onCommand:sortLines.sortLinesLineLengthReverse",
     "onCommand:sortLines.sortLinesUnique",
     "onCommand:sortLines.sortLinesShuffle"
   ],
@@ -48,6 +49,10 @@
       {
         "command":"sortLines.sortLinesLineLength",
         "title": "Sort lines (line length)"
+      },
+      {
+        "command":"sortLines.sortLinesLineLengthReverse",
+        "title": "Sort lines (line length reverse)"
       },
       {
         "command": "sortLines.sortLinesUnique",
