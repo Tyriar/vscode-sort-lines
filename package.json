@@ -48,11 +48,11 @@
       },
       {
         "command":"sortLines.sortLinesLineLength",
-        "title": "Sort lines (line length)"
+        "title": "Sort lines (line length ascending)"
       },
       {
         "command":"sortLines.sortLinesLineLengthReverse",
-        "title": "Sort lines (line length reverse)"
+        "title": "Sort lines (line length descending)"
       },
       {
         "command": "sortLines.sortLinesUnique",
