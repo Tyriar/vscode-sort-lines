@@ -13,7 +13,7 @@ Sort lines of text in Visual Studio Code. The following types of sorting are sup
 
     `{ "key": "f9", "command": "-sortLines.sortLines", "when": "editorTextFocus" }`
 
-# Install`
+# Install
 
 1. Open VS Code
 2. Press F1
