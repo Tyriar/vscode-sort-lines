@@ -29,7 +29,9 @@
     "onCommand:sortLines.sortLinesLineLength",
     "onCommand:sortLines.sortLinesLineLengthReverse",
     "onCommand:sortLines.sortLinesUnique",
-    "onCommand:sortLines.sortLinesShuffle"
+    "onCommand:sortLines.sortLinesShuffle",
+    "onCommand:sortLines.sortAlphanumeric",
+    "onCommand:sortLines.sortAlphanumericCaseInsensitive"
   ],
   "main": "./lib/main",
   "contributes": {
@@ -61,6 +63,14 @@
       {
 				"command": "sortLines.sortLinesShuffle",
 				"title": "Sort lines (shuffle)"
+      },
+      {
+				"command": "sortLines.sortAlphanumeric",
+				"title": "Sort lines (alphanumeric ascending)"
+      },
+      {
+				"command": "sortLines.sortAlphanumericCaseInsensitive",
+				"title": "Sort lines (alphanumeric ascending, case insensitive)"
 			}
     ],
     "keybindings": [{
