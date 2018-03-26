@@ -8,6 +8,7 @@ Sort lines of text in Visual Studio Code. The following types of sorting are sup
 - `Sort lines (reverse)` - Reverse character code based sort
 - `Sort lines (unique)` - Regular character code keeping only unique items
 - `Sort lines (shuffle)` - Shuffles the lines randomly
+- `Sort lines (natural)` - Natural sort order ([wikipedia](https://en.wikipedia.org/wiki/Natural_sort_order)), sorts alphabetically but groups multi-digit numbers
 
 \* *Note that this overrides the toggle breakpoint keybinding, you can unbind it by adding this to your `keybindings.json` file:*
 

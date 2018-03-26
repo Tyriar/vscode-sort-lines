@@ -2,7 +2,7 @@
   "name": "sort-lines",
   "displayName": "Sort lines",
   "description": "Sorts lines of text",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Tyriar/vscode-sort-lines/issues"
@@ -30,6 +30,7 @@
     "onCommand:sortLines.sortLinesLineLengthReverse",
     "onCommand:sortLines.sortLinesVariableLength",
     "onCommand:sortLines.sortLinesVariableLengthReverse",
+    "onCommand:sortLines.sortLinesNatural",
     "onCommand:sortLines.sortLinesUnique",
     "onCommand:sortLines.sortLinesShuffle"
   ],
@@ -49,11 +50,11 @@
         "title": "Sort lines (descending, case sensitive)"
       },
       {
-        "command":"sortLines.sortLinesLineLength",
+        "command": "sortLines.sortLinesLineLength",
         "title": "Sort lines (line length ascending)"
       },
       {
-        "command":"sortLines.sortLinesLineLengthReverse",
+        "command": "sortLines.sortLinesLineLengthReverse",
         "title": "Sort lines (line length descending)"
       },
       {
@@ -65,19 +66,25 @@
         "title": "Sort lines (variable length descending)"
       },
       {
+        "command": "sortLines.sortLinesNatural",
+        "title": "Sort lines (natural)"
+      },
+      {
         "command": "sortLines.sortLinesUnique",
         "title": "Sort lines (unique ascending, case sensitive)"
       },
       {
-				"command": "sortLines.sortLinesShuffle",
-				"title": "Sort lines (shuffle)"
-			}
+        "command": "sortLines.sortLinesShuffle",
+        "title": "Sort lines (shuffle)"
+      }
     ],
-    "keybindings": [{
-      "command": "sortLines.sortLines",
-      "key": "f9",
-      "when": "editorTextFocus"
-    }]
+    "keybindings": [
+      {
+        "command": "sortLines.sortLines",
+        "key": "f9",
+        "when": "editorTextFocus"
+      }
+    ]
   },
   "devDependencies": {
     "vscode": "0.10.x",
