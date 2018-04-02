@@ -81,7 +81,7 @@ function naturalCompare(a, b) {
   return intlCollator.compare(a, b);
 }
 
-function shuffleCompare(a, b) {
+function shuffleCompare() {
   return Math.random() > 0.5 ? 1 : -1;
 }
 
