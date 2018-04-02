@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
 import * as sortLines from './sort-lines';
 
-export function activate(context) {
-  var commands = [
+export function activate(context: vscode.ExtensionContext): void {
+  const commands = [
     vscode.commands.registerCommand('sortLines.sortLines', sortLines.sortNormal),
     vscode.commands.registerCommand('sortLines.sortLinesReverse', sortLines.sortReverse),
     vscode.commands.registerCommand('sortLines.sortLinesCaseInsensitive', sortLines.sortCaseInsensitive),
@@ -16,7 +16,5 @@ export function activate(context) {
     vscode.commands.registerCommand('sortLines.sortLinesShuffle', sortLines.sortShuffle)
   ];
 
-  commands.forEach(function (command) {
-    context.subscriptions.push(command);
-  });
+  commands.forEach(command => context.subscriptions.push(command));
 }

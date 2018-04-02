@@ -1,88 +1,89 @@
-var vscode = require('vscode');
+import * as vscode from 'vscode';
 
-function sortActiveSelection(algorithm, removeDuplicateValues) {
-  var textEditor = vscode.window.activeTextEditor;
-  var selection = textEditor.selection;
+type SortingAlgorithm = (a: string, b: string) => number;
+
+function sortActiveSelection(algorithm: SortingAlgorithm, removeDuplicateValues: boolean): void {
+  const textEditor = vscode.window.activeTextEditor;
+  const selection = textEditor.selection;
   if (selection.isSingleLine) {
     return;
   }
   sortLines(textEditor, selection.start.line, selection.end.line, algorithm, removeDuplicateValues);
 }
 
-function sortLines(textEditor, startLine, endLine, algorithm, removeDuplicateValues) {
-  var lines = [];
-  for (var i = startLine; i <= endLine; i++) {
+function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: number, algorithm: SortingAlgorithm, removeDuplicateValues: boolean): void {
+  const lines: string[] = [];
+  for (let i = startLine; i <= endLine; i++) {
     lines.push(textEditor.document.lineAt(i).text);
   }
   lines.sort(algorithm);
 
   if (removeDuplicateValues) {
-    lines = getUniqueArray(lines, algorithm);
+    removeDuplicates(lines, algorithm);
   }
 
-  textEditor.edit(function (editBuilder) {
-    var range = new vscode.Range(startLine, 0, endLine, textEditor.document.lineAt(endLine).text.length);
-    editBuilder.replace(range, lines.join("\n"));
+  textEditor.edit(editBuilder => {
+    const range = new vscode.Range(startLine, 0, endLine, textEditor.document.lineAt(endLine).text.length);
+    editBuilder.replace(range, lines.join('\n'));
   });
 }
 
-function getUniqueArray(lines, algorithm) {
-  var unique = [];
-  for (var i = 0; i < lines.length; ++i) {
-    if (unique.length === 0 || (algorithm(unique[unique.length - 1], lines[i])) !== 0) {
-      unique.push(lines[i]);
+function removeDuplicates(lines: string[], algorithm: SortingAlgorithm): void {
+  for (let i = 1; i < lines.length; ++i) {
+    if (algorithm(lines[i - 1], lines[i]) === 0) {
+      lines.splice(i, 1);
+      i--;
     }
   }
-  return unique;
 }
 
-function reverseCompare(a, b) {
+function reverseCompare(a: string, b: string): number {
   if (a.length === b.length) {
     return 0;
   }
   return a < b ? 1 : -1;
 }
 
-function caseInsensitiveCompare(a, b) {
+function caseInsensitiveCompare(a: string, b: string): number {
   return a.localeCompare(b, undefined, {sensitivity: 'base'});
 }
 
-function lineLengthCompare(a, b) {
+function lineLengthCompare(a: string, b: string): number {
   if (a.length === b.length) {
     return 0;
   }
   return a.length > b.length ? 1 : -1;
 }
 
-function lineLengthReverseCompare(a, b) {
+function lineLengthReverseCompare(a: string, b: string): number {
   if (a.length === b.length) {
     return 0;
   }
   return a.length > b.length ? -1 : 1;
 }
 
-function getVariableCharacters(line) {
-  return (line.match(/(.*)=/) || []).pop();
-}
-
-function variableLengthCompare(a, b) {
+function variableLengthCompare(a: string, b: string): number {
   return getVariableCharacters(a).length > getVariableCharacters(b).length ? 1 : -1;
 }
 
-function variableLengthReverseCompare(a, b) {
+function variableLengthReverseCompare(a: string, b: string): number {
   return getVariableCharacters(a).length > getVariableCharacters(b).length ? -1 : 1;
 }
 
-var intlCollator;
-function naturalCompare(a, b) {
+let intlCollator: Intl.Collator;
+function naturalCompare(a: string, b: string): number {
   if (!intlCollator) {
-    intlCollator = new Intl.Collator(undefined, {numeric:true});
+    intlCollator = new Intl.Collator(undefined, {numeric: true});
   }
   return intlCollator.compare(a, b);
 }
 
-function shuffleCompare() {
+function shuffleCompare(): number {
   return Math.random() > 0.5 ? 1 : -1;
+}
+
+function getVariableCharacters(line: string): string {
+  return (line.match(/(.*)=/) || []).pop();
 }
 
 export const sortNormal = sortActiveSelection.bind(null, undefined, false);
