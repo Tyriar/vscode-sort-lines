@@ -26,6 +26,7 @@
     "onCommand:sortLines.sortLines",
     "onCommand:sortLines.sortLinesReverse",
     "onCommand:sortLines.sortLinesCaseInsensitive",
+    "onCommand:sortLines.sortLinesCaseInsensitiveUnique",
     "onCommand:sortLines.sortLinesLineLength",
     "onCommand:sortLines.sortLinesLineLengthReverse",
     "onCommand:sortLines.sortLinesVariableLength",
@@ -44,6 +45,10 @@
       {
         "command": "sortLines.sortLinesCaseInsensitive",
         "title": "Sort lines (ascending, case insensitive)"
+      },
+      {
+        "command": "sortLines.sortLinesCaseInsensitiveUnique",
+        "title": "Sort lines (unique ascending, case insensitive)"
       },
       {
         "command": "sortLines.sortLinesReverse",
