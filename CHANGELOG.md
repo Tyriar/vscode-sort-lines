@@ -1,3 +1,12 @@
+## 1.6.0
+
+- Added `sortLines.sortLinesVariableLength` and `sortLines.sortLinesVariableLengthReverse` commands to sort by variable length [#30](https://github.com/Tyriar/vscode-sort-lines/pull/30) via [@labithiotis](https://github.com/labithiotis)
+- Added `sortLines.sortLinesCaseInsensitiveUnique` command to sort case insensitively and remove duplicates [#29](https://github.com/Tyriar/vscode-sort-lines/pull/29) via [@lynxnake](https://github.com/lynxnake)
+  - Convert to TypeScript
+  - Add TSLint
+  - Add CI
+  - Add tests
+
 ## 1.5.0
 
 - Added `sortLines.sortLinesNatural` command sort lines alphabetically but group together digits [#26](https://github.com/Tyriar/vscode-sort-lines/pull/26) via [@Gerrit-K](https://github.com/Gerrit-K)
