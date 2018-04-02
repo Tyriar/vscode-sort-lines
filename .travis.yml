@@ -1,0 +1,11 @@
+language: node_js
+os:
+  - linux
+node_js:
+  - 7
+env:
+  matrix:
+    - NPM_COMMAND=compile
+    - NPM_COMMAND=lint
+    - NPM_COMMAND=test
+script: npm run $NPM_COMMAND
