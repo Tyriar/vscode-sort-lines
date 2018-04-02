@@ -22,7 +22,7 @@
   },
   "publisher": "Tyriar",
   "engines": {
-    "vscode": "0.10.x"
+    "vscode": "^1.21.0"
   },
   "categories": [
     "Other"

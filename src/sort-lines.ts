@@ -2,16 +2,16 @@ import * as vscode from 'vscode';
 
 type SortingAlgorithm = (a: string, b: string) => number;
 
-function sortActiveSelection(algorithm: SortingAlgorithm, removeDuplicateValues: boolean): void {
+function sortActiveSelection(algorithm: SortingAlgorithm, removeDuplicateValues: boolean): Thenable<boolean> | undefined {
   const textEditor = vscode.window.activeTextEditor;
   const selection = textEditor.selection;
   if (selection.isSingleLine) {
-    return;
+    return undefined;
   }
-  sortLines(textEditor, selection.start.line, selection.end.line, algorithm, removeDuplicateValues);
+  return sortLines(textEditor, selection.start.line, selection.end.line, algorithm, removeDuplicateValues);
 }
 
-function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: number, algorithm: SortingAlgorithm, removeDuplicateValues: boolean): void {
+function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: number, algorithm: SortingAlgorithm, removeDuplicateValues: boolean): Thenable<boolean> {
   const lines: string[] = [];
   for (let i = startLine; i <= endLine; i++) {
     lines.push(textEditor.document.lineAt(i).text);
@@ -22,15 +22,15 @@ function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: nu
     removeDuplicates(lines, algorithm);
   }
 
-  textEditor.edit(editBuilder => {
+  return textEditor.edit(editBuilder => {
     const range = new vscode.Range(startLine, 0, endLine, textEditor.document.lineAt(endLine).text.length);
     editBuilder.replace(range, lines.join('\n'));
   });
 }
 
-function removeDuplicates(lines: string[], algorithm: SortingAlgorithm): void {
+function removeDuplicates(lines: string[], algorithm: SortingAlgorithm | undefined): void {
   for (let i = 1; i < lines.length; ++i) {
-    if (algorithm(lines[i - 1], lines[i]) === 0) {
+    if (algorithm ? algorithm(lines[i - 1], lines[i]) === 0 : lines[i - 1] === lines[i]) {
       lines.splice(i, 1);
       i--;
     }
@@ -38,7 +38,7 @@ function removeDuplicates(lines: string[], algorithm: SortingAlgorithm): void {
 }
 
 function reverseCompare(a: string, b: string): number {
-  if (a.length === b.length) {
+  if (a === b) {
     return 0;
   }
   return a < b ? 1 : -1;
@@ -83,7 +83,11 @@ function shuffleCompare(): number {
 }
 
 function getVariableCharacters(line: string): string {
-  return (line.match(/(.*)=/) || []).pop();
+  const match = line.match(/(.*)=/);
+  if (!match) {
+    return line;
+  }
+  return match.pop();
 }
 
 export const sortNormal = () => sortActiveSelection(undefined, false);
