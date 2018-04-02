@@ -8,7 +8,11 @@
     "url": "https://github.com/Tyriar/vscode-sort-lines/issues"
   },
   "scripts": {
-    "test": "mocha"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "homepage": "https://github.com/Tyriar/vscode-sort-lines",
   "repository": {
@@ -35,7 +39,7 @@
     "onCommand:sortLines.sortLinesUnique",
     "onCommand:sortLines.sortLinesShuffle"
   ],
-  "main": "./lib/main",
+  "main": "./out/extension",
   "contributes": {
     "commands": [
       {
@@ -63,11 +67,11 @@
         "title": "Sort lines (line length descending)"
       },
       {
-        "command":"sortLines.sortLinesVariableLength",
+        "command": "sortLines.sortLinesVariableLength",
         "title": "Sort lines (variable length ascending)"
       },
       {
-        "command":"sortLines.sortLinesVariableLengthReverse",
+        "command": "sortLines.sortLinesVariableLengthReverse",
         "title": "Sort lines (variable length descending)"
       },
       {
@@ -92,8 +96,11 @@
     ]
   },
   "devDependencies": {
-    "vscode": "0.10.x",
-    "mocha": "~2.3.3"
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0",
+    "mocha": "^2.3.3",
+    "@types/node": "^6.0.40",
+    "@types/mocha": "^2.2.32"
   },
   "icon": "images/icon.png"
 }

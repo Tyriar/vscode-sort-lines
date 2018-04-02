@@ -85,14 +85,14 @@ function shuffleCompare(a, b) {
   return Math.random() > 0.5 ? 1 : -1;
 }
 
-exports.sortNormal = sortActiveSelection.bind(null, undefined, false);
-exports.sortReverse = sortActiveSelection.bind(null, reverseCompare, false);
-exports.sortCaseInsensitive = sortActiveSelection.bind(null, caseInsensitiveCompare, false);
-exports.sortCaseInsensitiveUnique = sortActiveSelection.bind(null, caseInsensitiveCompare, true);
-exports.sortLineLength = sortActiveSelection.bind(null, lineLengthCompare, false);
-exports.sortLineLengthReverse = sortActiveSelection.bind(null, lineLengthReverseCompare, false);
-exports.sortVariableLength = sortActiveSelection.bind(null, variableLengthCompare, false);
-exports.sortVariableLengthReverse = sortActiveSelection.bind(null, variableLengthReverseCompare, false);
-exports.sortNatural = sortActiveSelection.bind(null, naturalCompare, false);
-exports.sortUnique = sortActiveSelection.bind(null, undefined, true);
-exports.sortShuffle = sortActiveSelection.bind(null, shuffleCompare, false);
+export const sortNormal = sortActiveSelection.bind(null, undefined, false);
+export const sortReverse = sortActiveSelection.bind(null, reverseCompare, false);
+export const sortCaseInsensitive = sortActiveSelection.bind(null, caseInsensitiveCompare, false);
+export const sortCaseInsensitiveUnique = sortActiveSelection.bind(null, caseInsensitiveCompare, true);
+export const sortLineLength = sortActiveSelection.bind(null, lineLengthCompare, false);
+export const sortLineLengthReverse = sortActiveSelection.bind(null, lineLengthReverseCompare, false);
+export const sortVariableLength = sortActiveSelection.bind(null, variableLengthCompare, false);
+export const sortVariableLengthReverse = sortActiveSelection.bind(null, variableLengthReverseCompare, false);
+export const sortNatural = sortActiveSelection.bind(null, naturalCompare, false);
+export const sortUnique = sortActiveSelection.bind(null, undefined, true);
+export const sortShuffle = sortActiveSelection.bind(null, shuffleCompare, false);

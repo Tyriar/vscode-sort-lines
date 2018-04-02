@@ -1,7 +1,7 @@
-var vscode = require('vscode');
-var sortLines = require('./sort-lines');
+import * as vscode from 'vscode';
+import * as sortLines from './sort-lines';
 
-function activate(context) {
+export function activate(context) {
   var commands = [
     vscode.commands.registerCommand('sortLines.sortLines', sortLines.sortNormal),
     vscode.commands.registerCommand('sortLines.sortLinesReverse', sortLines.sortReverse),
@@ -20,5 +20,3 @@ function activate(context) {
     context.subscriptions.push(command);
   });
 }
-
-exports.activate = activate;
