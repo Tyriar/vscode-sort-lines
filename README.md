@@ -2,13 +2,19 @@
 
 Sort lines of text in Visual Studio Code. The following types of sorting are supported:
 
-- `Sort lines` - Regular character code based sort (F9)\*
-- `Sort lines (case insensitive)` - Case insensitive sort
-- `Sort lines (line length)` - Sort lines by line length
-- `Sort lines (reverse)` - Reverse character code based sort
-- `Sort lines (unique)` - Regular character code keeping only unique items
-- `Sort lines (shuffle)` - Shuffles the lines randomly
-- `Sort lines (natural)` - Natural sort order ([wikipedia](https://en.wikipedia.org/wiki/Natural_sort_order)), sorts alphabetically but groups multi-digit numbers
+| Command | Title | Comments
+|---|---|---|
+| sortLines.sortLines | Sort lines (ascending, case sensitive) | Keybound to F9\*
+| sortLines.sortLinesCaseInsensitive | Sort lines (ascending, case insensitive) |
+| sortLines.sortLinesCaseInsensitiveUnique | Sort lines (unique ascending, case insensitive) |
+| sortLines.sortLinesReverse | Sort lines (descending, case sensitive) | Reverse character code based sort
+| sortLines.sortLinesLineLength | Sort lines (line length ascending) |
+| sortLines.sortLinesLineLengthReverse | Sort lines (line length descending) |
+| sortLines.sortLinesVariableLength | Sort lines (variable length ascending) |
+| sortLines.sortLinesVariableLengthReverse | Sort lines (variable length descending) |
+| sortLines.sortLinesNatural | Sort lines (natural) | Sorts alphabetically but groups multi-digit numbers ([Wikipedia](https://en.wikipedia.org/wiki/Natural_sort_order))
+| sortLines.sortLinesUnique | Sort lines (unique ascending, case sensitive) | Regular character code keeping only unique items
+| sortLines.sortLinesShuffle | Sort lines (shuffle) |
 
 \* *Note that this overrides the toggle breakpoint keybinding, you can unbind it by adding this to your `keybindings.json` file:*
 
