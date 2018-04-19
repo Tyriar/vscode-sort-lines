@@ -43,7 +43,7 @@ function removeDuplicates(lines: string[], algorithm: SortingAlgorithm | undefin
 
 function removeBlanks(lines: string[]): void {
   for (let i = 0; i < lines.length; ++i) {
-    if (lines[i].trim() === "") {
+    if (lines[i].trim() === '') {
       lines.splice(i, 1);
       i--;
     }
