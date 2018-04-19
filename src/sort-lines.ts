@@ -14,13 +14,17 @@ function sortActiveSelection(algorithm: SortingAlgorithm, removeDuplicateValues:
 function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: number, algorithm: SortingAlgorithm, removeDuplicateValues: boolean): Thenable<boolean> {
   const lines: string[] = [];
   for (let i = startLine; i <= endLine; i++) {
-    lines.push(textEditor.document.lineAt(i).text);
-  }
+      lines.push(textEditor.document.lineAt(i).text);
+    }
+
+  /* Remove blank lines in selection */
+  removeBlanks(lines);
+
   lines.sort(algorithm);
 
   if (removeDuplicateValues) {
     removeDuplicates(lines, algorithm);
-  }
+    }
 
   return textEditor.edit(editBuilder => {
     const range = new vscode.Range(startLine, 0, endLine, textEditor.document.lineAt(endLine).text.length);
@@ -31,6 +35,15 @@ function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: nu
 function removeDuplicates(lines: string[], algorithm: SortingAlgorithm | undefined): void {
   for (let i = 1; i < lines.length; ++i) {
     if (algorithm ? algorithm(lines[i - 1], lines[i]) === 0 : lines[i - 1] === lines[i]) {
+      lines.splice(i, 1);
+      i--;
+    }
+  }
+}
+
+function removeBlanks(lines: string[]): void {
+  for (let i = 0; i < lines.length; ++i) {
+    if (lines[i].trim() === "") {
       lines.splice(i, 1);
       i--;
     }
