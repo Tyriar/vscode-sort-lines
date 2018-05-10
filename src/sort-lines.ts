@@ -15,16 +15,18 @@ function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: nu
   const lines: string[] = [];
   for (let i = startLine; i <= endLine; i++) {
       lines.push(textEditor.document.lineAt(i).text);
-    }
+  }
 
   /* Remove blank lines in selection */
-  removeBlanks(lines);
+  if (vscode.workspace.getConfiguration('sortLines').get('filterBlankLines') == true) {
+    removeBlanks(lines);
+  }
 
   lines.sort(algorithm);
 
   if (removeDuplicateValues) {
     removeDuplicates(lines, algorithm);
-    }
+  }
 
   return textEditor.edit(editBuilder => {
     const range = new vscode.Range(startLine, 0, endLine, textEditor.document.lineAt(endLine).text.length);
