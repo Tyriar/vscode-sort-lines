@@ -18,7 +18,7 @@ function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: nu
   }
 
   /* Remove blank lines in selection */
-  if (vscode.workspace.getConfiguration('sortLines').get('filterBlankLines') == true) {
+  if (vscode.workspace.getConfiguration('sortLines').get('filterBlankLines') === true) {
     removeBlanks(lines);
   }
 
