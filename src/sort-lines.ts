@@ -14,10 +14,10 @@ function sortActiveSelection(algorithm: SortingAlgorithm, removeDuplicateValues:
 function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: number, algorithm: SortingAlgorithm, removeDuplicateValues: boolean): Thenable<boolean> {
   const lines: string[] = [];
   for (let i = startLine; i <= endLine; i++) {
-      lines.push(textEditor.document.lineAt(i).text);
+    lines.push(textEditor.document.lineAt(i).text);
   }
 
-  /* Remove blank lines in selection */
+  // Remove blank lines in selection
   if (vscode.workspace.getConfiguration('sortLines').get('filterBlankLines') === true) {
     removeBlanks(lines);
   }
