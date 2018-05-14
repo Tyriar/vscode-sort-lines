@@ -1,3 +1,7 @@
+## 1.7.0
+
+- Added `sortLines.filterBlankLines` setting (defaults to false) [#35](https://github.com/Tyriar/vscode-sort-lines/pull/35) via [@SoftwareApe](https://github.com/SoftwareApe)
+
 ## 1.6.0
 
 - Added `sortLines.sortLinesVariableLength` and `sortLines.sortLinesVariableLengthReverse` commands to sort by variable length [#30](https://github.com/Tyriar/vscode-sort-lines/pull/30) via [@labithiotis](https://github.com/labithiotis)
