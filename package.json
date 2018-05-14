@@ -88,6 +88,17 @@
         "title": "Sort lines (shuffle)"
       }
     ],
+    "configuration": {
+      "type": "object",
+      "title": "Sort Lines Options",
+      "properties": {
+        "sortLines.filterBlankLines": {
+          "type": "boolean",
+          "default": false,
+          "description": "Filter out blank (empty or whitespace-only) lines."
+        }
+      }
+    },
     "keybindings": [
       {
         "command": "sortLines.sortLines",
