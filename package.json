@@ -90,7 +90,7 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Sort Lines Options",
+      "title": "Sort Lines",
       "properties": {
         "sortLines.filterBlankLines": {
           "type": "boolean",
