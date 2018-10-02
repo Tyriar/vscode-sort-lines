@@ -88,6 +88,15 @@
         "title": "Sort lines (shuffle)"
       }
     ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "sortLines.sortLines",
+          "group": "1_modification"
+        }
+      ]
+    },
     "configuration": {
       "type": "object",
       "title": "Sort Lines",
