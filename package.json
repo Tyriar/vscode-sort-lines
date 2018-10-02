@@ -88,6 +88,15 @@
         "title": "Sort lines (shuffle)"
       }
     ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "sortLines.sortLines",
+          "group": "1_modification"
+        }
+      ]
+    },
     "configuration": {
       "type": "object",
       "title": "Sort Lines",
@@ -108,13 +117,13 @@
     ]
   },
   "devDependencies": {
-    "@types/mocha": "^2.2.32",
-    "@types/node": "^6.0.40",
-    "mocha": "^2.3.3",
-    "tslint": "^5.9.1",
-    "tslint-consistent-codestyle": "^1.13.0",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.11.3",
+    "mocha": "^5.2.0",
+    "tslint": "^5.11.0",
+    "tslint-consistent-codestyle": "^1.13.3",
     "typescript": "^2.0.3",
-    "vscode": "^1.0.0"
+    "vscode": "^1.1.21"
   },
   "icon": "images/icon.png"
 }
