@@ -5,6 +5,11 @@ type SortingAlgorithm = (a: string, b: string) => number;
 function sortActiveSelection(algorithm: SortingAlgorithm, removeDuplicateValues: boolean): Thenable<boolean> | undefined {
   const textEditor = vscode.window.activeTextEditor;
   const selection = textEditor.selection;
+
+  if (selection.isEmpty && vscode.workspace.getConfiguration('sortLines').get('sortEntireFile') === true) {
+    return sortLines(textEditor, 0, textEditor.document.lineCount - 1, algorithm, removeDuplicateValues);
+  }
+
   if (selection.isSingleLine) {
     return undefined;
   }
