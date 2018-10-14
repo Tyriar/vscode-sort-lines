@@ -22,7 +22,12 @@ function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: nu
     removeBlanks(lines);
   }
 
-  lines.sort(algorithm);
+  lines.sort((a, b) => {
+    const left = preprocessLine(a);
+    const right = preprocessLine(b);
+
+    return algorithm ? algorithm(left, right) : left.localeCompare(right);
+  });
 
   if (removeDuplicateValues) {
     removeDuplicates(lines, algorithm);
@@ -32,6 +37,16 @@ function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: nu
     const range = new vscode.Range(startLine, 0, endLine, textEditor.document.lineAt(endLine).text.length);
     editBuilder.replace(range, lines.join('\n'));
   });
+}
+
+function preprocessLine(text: string): string {
+  const regex = new RegExp(vscode.workspace.getConfiguration('sortLines').get('linePreprocessorRegex'));
+  const matches = text.match(regex);
+
+  if (matches != null) {
+    return matches[1] || text;
+  }
+  return text;
 }
 
 function removeDuplicates(lines: string[], algorithm: SortingAlgorithm | undefined): void {

@@ -6,7 +6,7 @@
 import * as assert from 'assert';
 import * as path from 'path';
 import * as fs from 'fs';
-import { commands, window, Range, Selection, Uri, TextDocument, TextEditor } from 'vscode';
+import { commands, window, Range, Selection, Uri, TextDocument, TextEditor, workspace } from 'vscode';
 
 function selectAllText(editor: TextEditor): void {
   const selection = new Selection(0, 0, editor.document.lineCount - 1, editor.document.lineAt(editor.document.lineCount - 1).text.length);
@@ -49,7 +49,15 @@ suite('Sort Lines', () => {
           commands.executeCommand('workbench.action.closeActiveEditor').then(() => {
             return window.showTextDocument(Uri.file(path.join(fixtureDir, `${fixture}_fixture`))).then(editor => {
               selectAllText(editor);
-              commands.executeCommand(`sortLines.${extCommand}`).then(() => {
+
+              let execution;
+              if (fixture === 'preprocess') {
+                execution = workspace.getConfiguration('sortLines').update('linePreprocessorRegex', '^[Tt]he (.*)$').then(() => commands.executeCommand(`sortLines.${extCommand}`));
+              } else {
+                execution = commands.executeCommand(`sortLines.${extCommand}`);
+              }
+
+              execution.then(() => {
                 const expectedPath = path.join(fixtureDir, `${fixture}_expected/${extCommand}`);
                 const expected = fs.readFileSync(expectedPath, 'utf8');
                 const actual = getAllText(editor.document);

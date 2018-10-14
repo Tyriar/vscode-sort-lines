@@ -96,6 +96,11 @@
           "type": "boolean",
           "default": false,
           "description": "Filter out blank (empty or whitespace-only) lines."
+        },
+        "sortLines.linePreprocessorRegex": {
+          "type": "string",
+          "default": "",
+          "description": "A regex that will be used before running the sorting algorithm, only the first group matched will be used by the algorithm."
         }
       }
     },

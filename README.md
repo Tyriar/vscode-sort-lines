@@ -22,6 +22,12 @@ Sort lines of text in Visual Studio Code. The following types of sorting are sup
 
     `{ "key": "f9", "command": "-sortLines.sortLines", "when": "editorTextFocus" }`
 
+# Settings
+| Name | Description | Default | Example
+|---|---|---|---|
+| sortLines.filterBlankLines | _(boolean)_ Filter out blank (empty or whitespace-only) lines. | false
+| sortLines.linePreprocessorRegex | _(string)_ A regex that will be used before running the sorting algorithm, only the first group matched will be used by the algorithm. | | `^[Tt]he (.*)$`
+
 # Install
 
 1. Open VS Code
