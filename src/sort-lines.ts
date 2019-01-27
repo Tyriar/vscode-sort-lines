@@ -5,6 +5,11 @@ type SortingAlgorithm = (a: string, b: string) => number;
 function sortActiveSelection(algorithm: SortingAlgorithm, removeDuplicateValues: boolean): Thenable<boolean> | undefined {
   const textEditor = vscode.window.activeTextEditor;
   const selection = textEditor.selection;
+
+  if (selection.isEmpty && vscode.workspace.getConfiguration('sortLines').get('sortEntireFile') === true) {
+    return sortLines(textEditor, 0, textEditor.document.lineCount - 1, algorithm, removeDuplicateValues);
+  }
+
   if (selection.isSingleLine) {
     return undefined;
   }
@@ -40,11 +45,12 @@ function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: nu
 }
 
 function preprocessLine(text: string): string {
-  const regex = new RegExp(vscode.workspace.getConfiguration('sortLines').get('linePreprocessorRegex'));
+  const group = vscode.workspace.getConfiguration('sortLines').get<number>('linePreprocessorRegexCaptureGroup') || 1;
+  const regex = new RegExp(vscode.workspace.getConfiguration('sortLines').get<string>('linePreprocessorRegex'));
   const matches = text.match(regex);
 
   if (matches != null) {
-    return matches[1] || text;
+    return matches[group] || text;
   }
   return text;
 }

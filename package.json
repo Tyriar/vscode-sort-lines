@@ -97,10 +97,21 @@
           "default": false,
           "description": "Filter out blank (empty or whitespace-only) lines."
         },
+        "sortLines.sortEntireFile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Sort entire file if no selection is active."
+        },
         "sortLines.linePreprocessorRegex": {
           "type": "string",
           "default": "",
-          "description": "A regex that will be used before running the sorting algorithm, only the first group matched will be used by the algorithm."
+          "description": "A regex that will be used before running the sorting algorithm."
+        },
+        "sortLines.linePreprocessorRegexCaptureGroup": {
+          "type": "number",
+          "default": 1,
+          "exclusiveMinimum": 0,
+          "description": "When a regex is used for preprocessing, which group will be used to sort by."
         }
       }
     },
