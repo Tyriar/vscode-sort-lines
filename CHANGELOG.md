@@ -1,3 +1,7 @@
+## 1.8.0
+
+- Added `sortLines.sortEntireFile` setting (defaults to false) that sorts the entire file when there is no selection [#43](https://github.com/Tyriar/vscode-sort-lines/pull/43) via [@chrsmutti](https://github.com/chrsmutti)
+
 ## 1.7.0
 
 - Added `sortLines.filterBlankLines` setting (defaults to false) [#35](https://github.com/Tyriar/vscode-sort-lines/pull/35) via [@SoftwareApe](https://github.com/SoftwareApe)
