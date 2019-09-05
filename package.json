@@ -110,7 +110,16 @@
         "key": "f9",
         "when": "editorTextFocus"
       }
-    ]
+    ],
+    "menus": {
+    	"editor/context": [
+          {
+            "command": "sortLines.sortLines",
+            "when": "editorTextFocus",
+            "group": "sortLines@1"
+          }
+    	]
+    }
   },
   "devDependencies": {
     "@types/mocha": "^2.2.32",
