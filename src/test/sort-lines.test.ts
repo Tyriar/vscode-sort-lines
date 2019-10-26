@@ -20,9 +20,10 @@ function getAllText(document: TextDocument): string {
 const fixtureDir = path.join(__dirname, '..', '..', 'fixtures');
 const fixtures = fs.readdirSync(fixtureDir).filter(v => v.search('_fixture$') !== -1).map(f => f.replace('_fixture', ''));
 const packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'package.json'), 'utf8'));
-const nonDeterministicCommands = ['sortLinesShuffle'];
-const extCommands: string[] = packageJson.contributes.commands.map(c => c.command.replace('sortLines.', '')).filter(c => nonDeterministicCommands.indexOf(c) === -1);
+const extCommands: string[] = packageJson.contributes.commands.map(c => c.command.replace('sortLines.', ''));
 const expectedExists: { [fixture: string]: { [command: string]: boolean } } = {};
+
+Math.random = function(): 0.9 { return 0.9; };
 
 suite('Sort Lines', () => {
   suite('All command fixtures exist', () => {
