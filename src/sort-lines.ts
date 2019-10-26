@@ -1,29 +1,32 @@
 import * as vscode from 'vscode';
 
-type SorterFunction = (unsortedLines: string[]) => string[];
+type ArrayTransformer = (lines: string[]) => string[];
 type SortingAlgorithm = (a: string, b: string) => number;
 
-function makeSorter(algorithm: SortingAlgorithm): SorterFunction {
+function makeSorter(algorithm?: SortingAlgorithm): ArrayTransformer {
   return function(lines: string[]): string[] {
     return lines.sort(algorithm);
   };
 }
 
-function sortActiveSelection(sorter: SorterFunction, removeDuplicateValues: boolean): Thenable<boolean> | undefined {
+function sortActiveSelection(transformers: ArrayTransformer[]): Thenable<boolean> | undefined {
   const textEditor = vscode.window.activeTextEditor;
+  if (!textEditor) {
+    return undefined;
+  }
   const selection = textEditor.selection;
 
   if (selection.isEmpty && vscode.workspace.getConfiguration('sortLines').get('sortEntireFile') === true) {
-    return sortLines(textEditor, 0, textEditor.document.lineCount - 1, sorter, removeDuplicateValues);
+    return sortLines(textEditor, 0, textEditor.document.lineCount - 1, transformers);
   }
 
   if (selection.isSingleLine) {
     return undefined;
   }
-  return sortLines(textEditor, selection.start.line, selection.end.line, sorter, removeDuplicateValues);
+  return sortLines(textEditor, selection.start.line, selection.end.line, transformers);
 }
 
-function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: number, sorter: SorterFunction, removeDuplicateValues: boolean): Thenable<boolean> {
+function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: number, transformers: ArrayTransformer[]): Thenable<boolean> {
   let lines: string[] = [];
   for (let i = startLine; i <= endLine; i++) {
     lines.push(textEditor.document.lineAt(i).text);
@@ -34,13 +37,7 @@ function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: nu
     removeBlanks(lines);
   }
 
-  if (sorter) {
-    lines = sorter(lines);
-  }
-
-  if (removeDuplicateValues) {
-    lines = removeDuplicates(lines);
-  }
+  lines = transformers.reduce((lines, transform) => transform(lines), lines);
 
   return textEditor.edit(editBuilder => {
     const range = new vscode.Range(startLine, 0, endLine, textEditor.document.lineAt(endLine).text.length);
@@ -104,7 +101,11 @@ function getVariableCharacters(line: string): string {
   if (!match) {
     return line;
   }
-  return match.pop();
+  const last = match.pop();
+  if (!last) {
+    return line;
+  }
+  return last;
 }
 
 function shuffleSorter(lines: string[]): string[] {
@@ -115,15 +116,30 @@ function shuffleSorter(lines: string[]): string[] {
     return lines;
 }
 
-export const sortNormal = () => sortActiveSelection(makeSorter(undefined), false);
-export const sortUnique = () => sortActiveSelection(makeSorter(undefined), true);
-export const sortReverse = () => sortActiveSelection(makeSorter(reverseCompare), false);
-export const sortCaseInsensitive = () => sortActiveSelection(makeSorter(caseInsensitiveCompare), false);
-export const sortCaseInsensitiveUnique = () => sortActiveSelection(makeSorter(caseInsensitiveCompare), true);
-export const sortLineLength = () => sortActiveSelection(makeSorter(lineLengthCompare), false);
-export const sortLineLengthReverse = () => sortActiveSelection(makeSorter(lineLengthReverseCompare), false);
-export const sortVariableLength = () => sortActiveSelection(makeSorter(variableLengthCompare), false);
-export const sortVariableLengthReverse = () => sortActiveSelection(makeSorter(variableLengthReverseCompare), false);
-export const sortNatural = () => sortActiveSelection(makeSorter(naturalCompare), false);
-export const sortShuffle = () => sortActiveSelection(shuffleSorter, false);
-export const removeDuplicateLines = () => sortActiveSelection(undefined, true);
+const transformers = {
+  sortNormal: [makeSorter()],
+  sortUnique: [makeSorter(), removeDuplicates],
+  sortReverse: [makeSorter(reverseCompare)],
+  sortCaseInsensitive: [makeSorter(caseInsensitiveCompare)],
+  sortCaseInsensitiveUnique: [makeSorter(caseInsensitiveCompare), removeDuplicates],
+  sortLineLength: [makeSorter(lineLengthCompare)],
+  sortLineLengthReverse: [makeSorter(lineLengthReverseCompare)],
+  sortVariableLength: [makeSorter(variableLengthCompare)],
+  sortVariableLengthReverse: [makeSorter(variableLengthReverseCompare)],
+  sortNatural: [makeSorter(naturalCompare)],
+  sortShuffle: [shuffleSorter],
+  removeDuplicateLines: [removeDuplicates]
+};
+
+export const sortNormal = () => sortActiveSelection(transformers.sortNormal);
+export const sortUnique = () => sortActiveSelection(transformers.sortUnique);
+export const sortReverse = () => sortActiveSelection(transformers.sortReverse);
+export const sortCaseInsensitive = () => sortActiveSelection(transformers.sortCaseInsensitive);
+export const sortCaseInsensitiveUnique = () => sortActiveSelection(transformers.sortCaseInsensitiveUnique);
+export const sortLineLength = () => sortActiveSelection(transformers.sortLineLength);
+export const sortLineLengthReverse = () => sortActiveSelection(transformers.sortLineLengthReverse);
+export const sortVariableLength = () => sortActiveSelection(transformers.sortVariableLength);
+export const sortVariableLengthReverse = () => sortActiveSelection(transformers.sortVariableLengthReverse);
+export const sortNatural = () => sortActiveSelection(transformers.sortNatural);
+export const sortShuffle = () => sortActiveSelection(transformers.sortShuffle);
+export const removeDuplicateLines = () => sortActiveSelection(transformers.removeDuplicateLines);
