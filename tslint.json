@@ -31,6 +31,7 @@
       "parameter"
     ],
     "eofline": true,
+    "no-shadowed-variable": true,
     "no-duplicate-imports": true,
     "no-eval": true,
     "no-internal-module": true,

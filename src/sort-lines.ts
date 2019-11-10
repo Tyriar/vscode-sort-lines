@@ -37,7 +37,7 @@ function sortLines(textEditor: vscode.TextEditor, startLine: number, endLine: nu
     removeBlanks(lines);
   }
 
-  lines = transformers.reduce((lines, transform) => transform(lines), lines);
+  lines = transformers.reduce((currentLines, transform) => transform(currentLines), lines);
 
   return textEditor.edit(editBuilder => {
     const range = new vscode.Range(startLine, 0, endLine, textEditor.document.lineAt(endLine).text.length);
@@ -116,7 +116,7 @@ function shuffleSorter(lines: string[]): string[] {
     return lines;
 }
 
-const transformers = {
+const transformerSequences = {
   sortNormal: [makeSorter()],
   sortUnique: [makeSorter(), removeDuplicates],
   sortReverse: [makeSorter(reverseCompare)],
@@ -131,15 +131,15 @@ const transformers = {
   removeDuplicateLines: [removeDuplicates]
 };
 
-export const sortNormal = () => sortActiveSelection(transformers.sortNormal);
-export const sortUnique = () => sortActiveSelection(transformers.sortUnique);
-export const sortReverse = () => sortActiveSelection(transformers.sortReverse);
-export const sortCaseInsensitive = () => sortActiveSelection(transformers.sortCaseInsensitive);
-export const sortCaseInsensitiveUnique = () => sortActiveSelection(transformers.sortCaseInsensitiveUnique);
-export const sortLineLength = () => sortActiveSelection(transformers.sortLineLength);
-export const sortLineLengthReverse = () => sortActiveSelection(transformers.sortLineLengthReverse);
-export const sortVariableLength = () => sortActiveSelection(transformers.sortVariableLength);
-export const sortVariableLengthReverse = () => sortActiveSelection(transformers.sortVariableLengthReverse);
-export const sortNatural = () => sortActiveSelection(transformers.sortNatural);
-export const sortShuffle = () => sortActiveSelection(transformers.sortShuffle);
-export const removeDuplicateLines = () => sortActiveSelection(transformers.removeDuplicateLines);
+export const sortNormal = () => sortActiveSelection(transformerSequences.sortNormal);
+export const sortUnique = () => sortActiveSelection(transformerSequences.sortUnique);
+export const sortReverse = () => sortActiveSelection(transformerSequences.sortReverse);
+export const sortCaseInsensitive = () => sortActiveSelection(transformerSequences.sortCaseInsensitive);
+export const sortCaseInsensitiveUnique = () => sortActiveSelection(transformerSequences.sortCaseInsensitiveUnique);
+export const sortLineLength = () => sortActiveSelection(transformerSequences.sortLineLength);
+export const sortLineLengthReverse = () => sortActiveSelection(transformerSequences.sortLineLengthReverse);
+export const sortVariableLength = () => sortActiveSelection(transformerSequences.sortVariableLength);
+export const sortVariableLengthReverse = () => sortActiveSelection(transformerSequences.sortVariableLengthReverse);
+export const sortNatural = () => sortActiveSelection(transformerSequences.sortNatural);
+export const sortShuffle = () => sortActiveSelection(transformerSequences.sortShuffle);
+export const removeDuplicateLines = () => sortActiveSelection(transformerSequences.removeDuplicateLines);
