@@ -10,7 +10,8 @@
       "rootDir": "src",
       "noUnusedLocals": true,
       "noImplicitReturns": true,
-      "noUnusedParameters": true
+      "noUnusedParameters": true,
+      "strictNullChecks": true,
   },
   "exclude": [
       "node_modules",

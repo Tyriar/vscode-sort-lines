@@ -38,6 +38,7 @@
     "onCommand:sortLines.sortLinesVariableLengthReverse",
     "onCommand:sortLines.sortLinesNatural",
     "onCommand:sortLines.sortLinesUnique",
+    "onCommand:sortLines.removeDuplicateLines",
     "onCommand:sortLines.sortLinesShuffle"
   ],
   "main": "./out/extension",
@@ -82,6 +83,10 @@
       {
         "command": "sortLines.sortLinesUnique",
         "title": "Sort lines (unique ascending, case sensitive)"
+      },
+      {
+        "command": "sortLines.removeDuplicateLines",
+        "title": "Sort lines (remove duplicate lines)"
       },
       {
         "command": "sortLines.sortLinesShuffle",
