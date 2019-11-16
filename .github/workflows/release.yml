@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+        registry-url: 'https://npm.pkg.github.com'
+    - name: Cache yarn cache
+      uses: actions/cache@v1
+      with:
+        path: ~/.cache/yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+    - name: Install and build
+      run: |
+        yarn --frozen-lockfile
+        yarn compile
+      env:
+        CI: true
+    - name: Test and lint
+      run: |
+        DISPLAY=:10 yarn test
+        yarn lint
+    - name: Publish with vsce
+      run: |
+        # Try to publish and ignore any errors (that version was already published)
+        vsce publish -p $VSCE_TOKEN || true
+      env:
+        VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
