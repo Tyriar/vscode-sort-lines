@@ -12,9 +12,9 @@ function getAllText(document: TextDocument): string {
   return document.getText(new Range(0, 0, document.lineCount - 1, document.lineAt(document.lineCount - 1).text.length));
 }
 
-const fixtureDir = path.join(__dirname, '..', '..', 'fixtures');
+const fixtureDir = path.join(__dirname, '../../../fixtures');
 const fixtures = fs.readdirSync(fixtureDir).filter(v => v.search('_fixture$') !== -1).map(f => f.replace('_fixture', ''));
-const packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'package.json'), 'utf8'));
+const packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../package.json'), 'utf8'));
 const extCommands: string[] = packageJson.contributes.commands.map(c => c.command.replace('sortLines.', ''));
 const expectedExists: { [fixture: string]: { [command: string]: boolean } } = {};
 

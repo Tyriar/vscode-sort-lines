@@ -12,8 +12,8 @@
     "compile": "tsc -p ./",
     "lint": "tslint ./src/*.ts",
     "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
   },
   "homepage": "https://github.com/Tyriar/vscode-sort-lines",
   "repository": {
@@ -22,7 +22,7 @@
   },
   "publisher": "Tyriar",
   "engines": {
-    "vscode": "^1.21.0"
+    "vscode": "^1.40.0"
   },
   "categories": [
     "Other"
@@ -112,23 +112,24 @@
       }
     ],
     "menus": {
-    	"editor/context": [
-          {
-            "command": "sortLines.sortLines",
-            "when": "editorTextFocus",
-            "group": "sortLines@1"
-          }
-    	]
+      "editor/context": [
+        {
+          "command": "sortLines.sortLines",
+          "when": "editorTextFocus",
+          "group": "sortLines@1"
+        }
+      ]
     }
   },
   "devDependencies": {
-    "@types/mocha": "^2.2.32",
+    "@types/mocha": "^5.2.7",
     "@types/node": "^6.0.40",
-    "mocha": "^2.3.3",
+    "@types/vscode": "^1.40.0",
+    "mocha": "6",
     "tslint": "^5.9.1",
     "tslint-consistent-codestyle": "^1.13.0",
     "typescript": "^2.0.3",
-    "vscode": "^1.0.0"
+    "vscode-test": "^1.2.3"
   },
   "icon": "images/icon.png"
 }
