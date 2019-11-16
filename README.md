@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/Tyriar/vscode-sort-lines.svg?branch=master)](https://travis-ci.org/Tyriar/vscode-sort-lines)
-
 # Functionality
 
 Sort lines of text in Visual Studio Code. The following types of sorting are supported:
