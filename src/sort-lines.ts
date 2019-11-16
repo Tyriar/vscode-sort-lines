@@ -70,10 +70,13 @@ function caseInsensitiveCompare(a: string, b: string): number {
 }
 
 function lineLengthCompare(a: string, b: string): number {
-  if (a.length === b.length) {
+  // Use Array.from so that multi-char characters count as 1 each
+  const aLength = Array.from(a).length;
+  const bLength = Array.from(b).length;
+  if (aLength === bLength) {
     return 0;
   }
-  return a.length > b.length ? 1 : -1;
+  return aLength > bLength ? 1 : -1;
 }
 
 function lineLengthReverseCompare(a: string, b: string): number {
@@ -81,7 +84,7 @@ function lineLengthReverseCompare(a: string, b: string): number {
 }
 
 function variableLengthCompare(a: string, b: string): number {
-  return getVariableCharacters(a).length >= getVariableCharacters(b).length ? 1 : -1;
+  return lineLengthCompare(getVariableCharacters(a), getVariableCharacters(b));
 }
 
 function variableLengthReverseCompare(a: string, b: string): number {
