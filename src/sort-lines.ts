@@ -96,10 +96,6 @@ function naturalCompare(a: string, b: string): number {
   return intlCollator.compare(a, b);
 }
 
-function shuffleCompare(): number {
-  return Math.random() >= 0.5 ? 1 : -1;
-}
-
 function getVariableCharacters(line: string): string {
   const match = line.match(/(.*)=/);
   if (!match) {
