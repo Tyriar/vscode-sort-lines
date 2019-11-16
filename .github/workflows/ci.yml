@@ -34,5 +34,5 @@ jobs:
         CI: true
     - name: Test and lint
       run: |
-        yarn test
+        DISPLAY=:10 yarn test
         yarn lint
