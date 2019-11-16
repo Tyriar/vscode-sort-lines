@@ -99,7 +99,7 @@ function naturalCompare(a: string, b: string): number {
 }
 
 function shuffleCompare(): number {
-  return Math.random() > 0.5 ? 1 : -1;
+  return Math.random() >= 0.5 ? 1 : -1;
 }
 
 function getVariableCharacters(line: string): string {
