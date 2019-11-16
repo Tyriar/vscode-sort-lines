@@ -11,6 +11,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
+    - name: Setup build environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libxkbfile-dev pkg-config libsecret-1-dev libxss1 dbus xvfb libgtk-3-0
+        sudo cp xvfb.init /etc/init.d/xvfb
+        sudo chmod +x /etc/init.d/xvfb
+        sudo update-rc.d xvfb defaults
+        sudo service xvfb start
     - name: Cache yarn cache
       uses: actions/cache@v1
       with:
@@ -20,7 +28,7 @@ jobs:
           ${{ runner.os }}-yarn-
     - name: Install and build
       run: |
-        yarn
+        yarn --frozen-lockfile
         yarn compile
       env:
         CI: true
