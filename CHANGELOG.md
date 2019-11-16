@@ -1,3 +1,15 @@
+## 1.9.0
+
+- Update icon to play well with dark backgrounds ([#51](https://github.com/Tyriar/vscode-sort-lines/pull/51)) via [@Pustur](https://github.com/Pustur)
+- New context menu item ([#52](https://github.com/Tyriar/vscode-sort-lines/pull/52)) via [@petty](https://github.com/petty)
+- Add tests for shuffle sorts ([#56](https://github.com/Tyriar/vscode-sort-lines/pull/56)) via [@merelj](https://github.com/merelj)
+- Migrate to GitHub Actions and automate release ([#56](https://github.com/Tyriar/vscode-sort-lines/pull/60), [#61](https://github.com/Tyriar/vscode-sort-lines/pull/61), [#63](https://github.com/Tyriar/vscode-sort-lines/pull/63)) via [@Tyriar](https://github.com/Tyriar)
+- Upgrade to TypeScript 3.7, Mocha 6 and new VS Code test framework ([#62](https://github.com/Tyriar/vscode-sort-lines/pull/62)) via [@Tyriar](https://github.com/Tyriar)
+- New remove duplicate lines command ([#57](https://github.com/Tyriar/vscode-sort-lines/pull/57)) via [@merelj](https://github.com/merelj)
+- Enable TypeScript strict mode ([#64](https://github.com/Tyriar/vscode-sort-lines/pull/64)) via [@Tyriar](https://github.com/Tyriar)
+- Make sorts aware of multi-length characters ([#65](https://github.com/Tyriar/vscode-sort-lines/pull/65)) via [@Tyriar](https://github.com/Tyriar)
+- Make all commands use stable sorts ([#66](https://github.com/Tyriar/vscode-sort-lines/pull/66)) via [@Tyriar](https://github.com/Tyriar)
+
 ## 1.8.0
 
 - Added `sortLines.sortEntireFile` setting (defaults to false) that sorts the entire file when there is no selection [#43](https://github.com/Tyriar/vscode-sort-lines/pull/43) via [@chrsmutti](https://github.com/chrsmutti)
