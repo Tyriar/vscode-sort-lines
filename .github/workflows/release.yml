@@ -28,10 +28,6 @@ jobs:
         yarn compile
       env:
         CI: true
-    - name: Test and lint
-      run: |
-        DISPLAY=:10 yarn test
-        yarn lint
     - name: Publish with vsce
       run: |
         # Try to publish and ignore any errors (that version was already published)
