@@ -128,7 +128,7 @@
     "mocha": "6",
     "tslint": "^5.9.1",
     "tslint-consistent-codestyle": "^1.13.0",
-    "typescript": "^2.0.3",
+    "typescript": "3.7",
     "vscode-test": "^1.2.3"
   },
   "icon": "images/icon.png"
