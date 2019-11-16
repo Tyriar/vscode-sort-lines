@@ -1,0 +1,38 @@
+name: CI
+
+on: [push]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Setup build environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libxkbfile-dev pkg-config libsecret-1-dev libxss1 dbus xvfb libgtk-3-0
+        sudo cp xvfb.init /etc/init.d/xvfb
+        sudo chmod +x /etc/init.d/xvfb
+        sudo update-rc.d xvfb defaults
+        sudo service xvfb start
+    - name: Cache yarn cache
+      uses: actions/cache@v1
+      with:
+        path: ~/.cache/yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+    - name: Install and build
+      run: |
+        yarn --frozen-lockfile
+        yarn compile
+      env:
+        CI: true
+    - name: Test and lint
+      run: |
+        DISPLAY=:10 yarn test
+        yarn lint

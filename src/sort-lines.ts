@@ -83,11 +83,11 @@ function lineLengthReverseCompare(a: string, b: string): number {
 }
 
 function variableLengthCompare(a: string, b: string): number {
-  return getVariableCharacters(a).length > getVariableCharacters(b).length ? 1 : -1;
+  return getVariableCharacters(a).length >= getVariableCharacters(b).length ? 1 : -1;
 }
 
 function variableLengthReverseCompare(a: string, b: string): number {
-  return getVariableCharacters(a).length > getVariableCharacters(b).length ? -1 : 1;
+  return getVariableCharacters(a).length >= getVariableCharacters(b).length ? -1 : 1;
 }
 
 let intlCollator: Intl.Collator;
@@ -99,7 +99,7 @@ function naturalCompare(a: string, b: string): number {
 }
 
 function shuffleCompare(): number {
-  return Math.random() > 0.5 ? 1 : -1;
+  return Math.random() >= 0.5 ? 1 : -1;
 }
 
 function getVariableCharacters(line: string): string {
