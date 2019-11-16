@@ -30,7 +30,7 @@ jobs:
         CI: true
     - name: Publish with vsce
       run: |
-        yarn global add vsce
+        npm i -g vsce
         # Try to publish and ignore any errors (that version was already published)
         vsce publish -p $VSCE_TOKEN || true
       env:
