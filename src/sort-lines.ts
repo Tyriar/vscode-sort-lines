@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import naturalSort from 'javascript-natural-sort';
 
 type ArrayTransformer = (lines: string[]) => string[];
 type SortingAlgorithm = (a: string, b: string) => number;
@@ -91,14 +92,6 @@ function variableLengthReverseCompare(a: string, b: string): number {
   return variableLengthCompare(a, b) * -1;
 }
 
-let intlCollator: Intl.Collator;
-function naturalCompare(a: string, b: string): number {
-  if (!intlCollator) {
-    intlCollator = new Intl.Collator(undefined, {numeric: true});
-  }
-  return intlCollator.compare(a, b);
-}
-
 function getVariableCharacters(line: string): string {
   const match = line.match(/(.*)=/);
   if (!match) {
@@ -129,7 +122,7 @@ const transformerSequences = {
   sortLineLengthReverse: [makeSorter(lineLengthReverseCompare)],
   sortVariableLength: [makeSorter(variableLengthCompare)],
   sortVariableLengthReverse: [makeSorter(variableLengthReverseCompare)],
-  sortNatural: [makeSorter(naturalCompare)],
+  sortNatural: [makeSorter(naturalSort)],
   sortShuffle: [shuffleSorter],
   removeDuplicateLines: [removeDuplicates]
 };

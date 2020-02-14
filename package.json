@@ -137,5 +137,8 @@
     "typescript": "3.7",
     "vscode-test": "^1.2.3"
   },
-  "icon": "images/icon.png"
+  "icon": "images/icon.png",
+  "dependencies": {
+    "javascript-natural-sort": "^0.7.1"
+  }
 }
