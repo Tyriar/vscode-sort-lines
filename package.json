@@ -22,7 +22,7 @@
   },
   "publisher": "Tyriar",
   "engines": {
-    "vscode": "^1.40.0"
+    "vscode": "^1.47.0"
   },
   "categories": [
     "Other"
@@ -128,14 +128,14 @@
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
-    "@types/mocha": "^5.2.7",
+    "@types/mocha": "^7.0.2",
     "@types/node": "^6.0.40",
-    "@types/vscode": "^1.40.0",
-    "mocha": "6",
+    "@types/vscode": "^1.47.0",
+    "mocha": "^7.1.1",
     "tslint": "^5.9.1",
     "tslint-consistent-codestyle": "^1.13.0",
     "typescript": "3.7",
-    "vscode-test": "^1.2.3"
+    "vscode-test": "^1.3.0"
   },
   "icon": "images/icon.png"
 }
