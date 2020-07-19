@@ -34,6 +34,7 @@ jobs:
         CI: true
     - name: Test
       uses: GabrielBB/xvfb-action@v1.2
-      run: yarn test
+      with:
+        run: yarn test
     - name: Lint
       run: yarn lint
