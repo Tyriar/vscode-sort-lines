@@ -14,6 +14,7 @@ Sort lines of text in Visual Studio Code. The following types of sorting are sup
 | sortLines.sortLinesVariableLengthReverse | Sort lines (variable length descending) |
 | sortLines.sortLinesNatural | Sort lines (natural) | Sorts alphabetically but groups multi-digit numbers ([Wikipedia](https://en.wikipedia.org/wiki/Natural_sort_order))
 | sortLines.sortLinesUnique | Sort lines (unique ascending, case sensitive) | Regular character code keeping only unique items
+| sortLines.sortReverseIt | Sort lines (reverse lines regarless of content) |
 | sortLines.sortLinesShuffle | Sort lines (shuffle) |
 | sortLines.removeDuplicateLines | Sort lines (remove duplicate lines)
 
