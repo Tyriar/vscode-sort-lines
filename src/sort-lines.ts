@@ -111,6 +111,10 @@ function getVariableCharacters(line: string): string {
   return last;
 }
 
+function reverseIt(lines: string[]): string[] {
+  return lines.reverse();
+}
+
 function shuffleSorter(lines: string[]): string[] {
     for (let i = lines.length - 1; i > 0; i--) {
         const rand = Math.floor(Math.random() * (i + 1));
@@ -130,6 +134,7 @@ const transformerSequences = {
   sortVariableLength: [makeSorter(variableLengthCompare)],
   sortVariableLengthReverse: [makeSorter(variableLengthReverseCompare)],
   sortNatural: [makeSorter(naturalCompare)],
+  sortReverseIt: [reverseIt],
   sortShuffle: [shuffleSorter],
   removeDuplicateLines: [removeDuplicates]
 };
@@ -145,4 +150,5 @@ export const sortVariableLength = () => sortActiveSelection(transformerSequences
 export const sortVariableLengthReverse = () => sortActiveSelection(transformerSequences.sortVariableLengthReverse);
 export const sortNatural = () => sortActiveSelection(transformerSequences.sortNatural);
 export const sortShuffle = () => sortActiveSelection(transformerSequences.sortShuffle);
+export const sortReverseIt = () => sortActiveSelection(transformerSequences.sortReverseIt);
 export const removeDuplicateLines = () => sortActiveSelection(transformerSequences.removeDuplicateLines);

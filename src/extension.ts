@@ -13,6 +13,7 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerCommand('sortLines.sortLinesVariableLengthReverse', sortLines.sortVariableLengthReverse),
     vscode.commands.registerCommand('sortLines.sortLinesNatural', sortLines.sortNatural),
     vscode.commands.registerCommand('sortLines.sortLinesUnique', sortLines.sortUnique),
+    vscode.commands.registerCommand('sortLines.sortLinesReverseIt', sortLines.sortReverseIt),
     vscode.commands.registerCommand('sortLines.sortLinesShuffle', sortLines.sortShuffle),
     vscode.commands.registerCommand('sortLines.removeDuplicateLines', sortLines.removeDuplicateLines)
   ];
