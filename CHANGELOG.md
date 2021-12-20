@@ -1,3 +1,7 @@
+## 1.9.1
+
+- The extension now supports vscode.dev and github.dev.
+
 ## 1.9.0
 
 - Update icon to play well with dark backgrounds ([#51](https://github.com/Tyriar/vscode-sort-lines/pull/51)) via [@Pustur](https://github.com/Pustur)
