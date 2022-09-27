@@ -16,6 +16,7 @@ Sort lines of text in Visual Studio Code. The following types of sorting are sup
 | sortLines.sortLinesUnique | Sort lines (unique ascending, case sensitive) | Regular character code keeping only unique items
 | sortLines.sortLinesShuffle | Sort lines (shuffle) |
 | sortLines.removeDuplicateLines | Sort lines (remove duplicate lines)
+| sortLines.showDuplicateLines | Sort lines (remove duplicate lines)
 
 \* *Note that this overrides the toggle breakpoint keybinding, you can unbind it by adding this to your `keybindings.json` file:*
 
