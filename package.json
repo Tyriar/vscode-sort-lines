@@ -42,7 +42,7 @@
     "onCommand:sortLines.sortLinesNatural",
     "onCommand:sortLines.sortLinesUnique",
     "onCommand:sortLines.removeDuplicateLines",
-    "onCommand:sortLines.showDuplicateLines",
+    "onCommand:sortLines.keepOnlyDuplicateLines",
     "onCommand:sortLines.sortLinesShuffle"
   ],
   "main": "./out/extension",
@@ -94,8 +94,8 @@
         "title": "Sort lines (remove duplicate lines)"
       },
       {
-				"command": "sortLines.showDuplicateLines",
-				"title": "Sort lines (show duplicated lines)"
+				"command": "sortLines.keepOnlyDuplicateLines",
+				"title": "Sort lines (keep only duplicated lines)"
 			},
       {
         "command": "sortLines.sortLinesShuffle",
