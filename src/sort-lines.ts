@@ -49,6 +49,10 @@ function removeDuplicates(lines: string[]): string[] {
   return Array.from(new Set(lines));
 }
 
+function keepOnlyDuplicates(lines: string[]): string[] {
+  return Array.from(new Set(lines.filter((element, index, array) => array.indexOf(element) !== index)));
+}
+
 function removeBlanks(lines: string[]): void {
   for (let i = 0; i < lines.length; ++i) {
     if (lines[i].trim() === '') {
@@ -131,7 +135,8 @@ const transformerSequences = {
   sortVariableLengthReverse: [makeSorter(variableLengthReverseCompare)],
   sortNatural: [makeSorter(naturalCompare)],
   sortShuffle: [shuffleSorter],
-  removeDuplicateLines: [removeDuplicates]
+  removeDuplicateLines: [removeDuplicates],
+  keepOnlyDuplicateLines: [keepOnlyDuplicates]
 };
 
 export const sortNormal = () => sortActiveSelection(transformerSequences.sortNormal);
@@ -146,3 +151,4 @@ export const sortVariableLengthReverse = () => sortActiveSelection(transformerSe
 export const sortNatural = () => sortActiveSelection(transformerSequences.sortNatural);
 export const sortShuffle = () => sortActiveSelection(transformerSequences.sortShuffle);
 export const removeDuplicateLines = () => sortActiveSelection(transformerSequences.removeDuplicateLines);
+export const keepOnlyDuplicateLines = () => sortActiveSelection(transformerSequences.keepOnlyDuplicateLines);
