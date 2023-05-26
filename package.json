@@ -2,7 +2,7 @@
   "name": "sort-lines",
   "displayName": "Sort lines",
   "description": "Sorts lines of text",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Tyriar/vscode-sort-lines/issues"

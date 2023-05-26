@@ -1,3 +1,7 @@
+## 1.10.1
+
+- Fix published build artifacts
+
 ## 1.10.0
 
 - Added `sortLines.keepOnlyDuplicateLines` command which does the inverse of `sortLines.removeDuplicateLines` ([#116](https://github.com/Tyriar/vscode-sort-lines/pull/116)) via [@pit00](https://github.com/pit00)
