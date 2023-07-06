@@ -1,3 +1,7 @@
+## 1.10.2
+
+- Update VS Code engine version
+
 ## 1.10.1
 
 - Fix published build artifacts
