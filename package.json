@@ -25,7 +25,7 @@
   },
   "publisher": "Tyriar",
   "engines": {
-    "vscode": "^1.47.0"
+    "vscode": "^1.79.0"
   },
   "categories": [
     "Other"
