@@ -98,6 +98,11 @@
           "default": false,
           "description": "Filter out blank (empty or whitespace-only) lines."
         },
+        "sortLines.ignoreUnselectedLastLine": {
+          "type": "boolean",
+          "default": false,
+          "description": "Ignore unselected last line. Allows selection by line numbers."
+        },
         "sortLines.sortEntireFile": {
           "type": "boolean",
           "default": false,
