@@ -16,6 +16,7 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerCommand('sortLines.sortLinesShuffle', sortLines.sortShuffle),
     vscode.commands.registerCommand('sortLines.removeDuplicateLines', sortLines.removeDuplicateLines),
     vscode.commands.registerCommand('sortLines.keepOnlyDuplicateLines', sortLines.keepOnlyDuplicateLines),
+    vscode.commands.registerCommand('sortLines.keepOnlyNotDuplicateLines', sortLines.keepOnlyNotDuplicateLines),
   ];
 
   commands.forEach(command => context.subscriptions.push(command));
