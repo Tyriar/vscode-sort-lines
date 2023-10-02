@@ -1,3 +1,7 @@
+## 1.11.0
+
+- Added `sortLines.ignoreUnselectedLastLine` which will ignore the last line if it's only selected because of the trailing \n on the previous line. This allows selecting lines to be sorted by clicking and dragging the editor line numbers ([#124](https://github.com/Tyriar/vscode-sort-lines/pull/124)) via [@gdlx](https://github.com/gdlx)
+
 ## 1.10.2
 
 - Update VS Code engine version
