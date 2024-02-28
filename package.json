@@ -121,7 +121,7 @@
       "editor/context": [
         {
           "command": "sortLines.sortLines",
-          "when": "editorTextFocus",
+          "when": "editorTextFocus && !editorReadonly",
           "group": "sortLines@1"
         }
       ]
