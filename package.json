@@ -81,9 +81,13 @@
         "title": "Sort lines (remove duplicate lines)"
       },
       {
-				"command": "sortLines.keepOnlyDuplicateLines",
-				"title": "Sort lines (keep only duplicated lines)"
-			},
+        "command": "sortLines.keepOnlyDuplicateLines",
+        "title": "Sort lines (keep only duplicated lines)"
+      },
+      {
+        "command": "sortLines.keepOnlyNotDuplicateLines",
+        "title": "Sort lines (keep only not duplicated lines)"
+      },
       {
         "command": "sortLines.sortLinesShuffle",
         "title": "Sort lines (shuffle)"
