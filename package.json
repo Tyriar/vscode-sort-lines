@@ -123,9 +123,74 @@
           "command": "sortLines.sortLines",
           "when": "editorTextFocus && !editorReadonly",
           "group": "sortLines@1"
+        },
+        {
+          "submenu": "sortLines",
+          "when": "editorTextFocus && !editorReadonly",
+          "group": "sortLines@2"
+        }
+      ],
+      "sortLines": [
+        {
+          "command": "sortLines.sortLines",
+          "group": "2_sortLines@1"
+        },
+        {
+          "command": "sortLines.sortLinesCaseInsensitive",
+          "group": "2_sortLines@2"
+        },
+        {
+          "command": "sortLines.sortLinesCaseInsensitiveUnique",
+          "group": "2_sortLines@3"
+        },
+        {
+          "command": "sortLines.sortLinesReverse",
+          "group": "2_sortLines@4"
+        },
+        {
+          "command": "sortLines.sortLinesLineLength",
+          "group": "2_sortLines@5"
+        },
+        {
+          "command": "sortLines.sortLinesLineLengthReverse",
+          "group": "2_sortLines@6"
+        },
+        {
+          "command": "sortLines.sortLinesVariableLength",
+          "group": "2_sortLines@7"
+        },
+        {
+          "command": "sortLines.sortLinesVariableLengthReverse",
+          "group": "2_sortLines@8"
+        },
+        {
+          "command": "sortLines.sortLinesNatural",
+          "group": "2_sortLines@9"
+        },
+        {
+          "command": "sortLines.sortLinesUnique",
+          "group": "2_sortLines@10"
+        },
+        {
+          "command": "sortLines.removeDuplicateLines",
+          "group": "2_sortLines@11"
+        },
+        {
+					"command": "sortLines.keepOnlyDuplicateLines",
+					"group": "2_sortLines@12"
+				},
+        {
+          "command": "sortLines.sortLinesShuffle",
+          "group": "2_sortLines@13"
         }
       ]
-    }
+    },
+    "submenus": [
+      {
+        "id": "sortLines",
+        "label": "Sort lines"
+      }
+    ]
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
