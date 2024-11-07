@@ -9,13 +9,13 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v4
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
       with:
-        node-version: 12.x
+        node-version: 20.x
     - name: Cache yarn cache
-      uses: actions/cache@v1
+      uses: actions/cache@v4
       with:
         path: ~/.cache/yarn
         key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
@@ -28,7 +28,7 @@ jobs:
       env:
         CI: true
     - name: Test
-      uses: GabrielBB/xvfb-action@v1.2
+      uses: GabrielBB/xvfb-action@v1
       with:
         run: yarn test
     - name: Lint
