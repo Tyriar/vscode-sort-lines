@@ -24,11 +24,11 @@ function sortActiveSelection(transformers: ArrayTransformer[]): Thenable<boolean
     return undefined;
   }
 
-  let endLine = selection.end.line
+  let endLine = selection.end.line;
 
   // Ignore unselected last line
-  if (selection.end.character == 0 && vscode.workspace.getConfiguration('sortLines').get('ignoreUnselectedLastLine') === true) {
-    endLine -= 1
+  if (selection.end.character === 0 && vscode.workspace.getConfiguration('sortLines').get('ignoreUnselectedLastLine') === true) {
+    endLine -= 1;
   }
   return sortLines(textEditor, selection.start.line, endLine, transformers);
 }
