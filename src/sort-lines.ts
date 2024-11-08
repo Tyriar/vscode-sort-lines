@@ -61,7 +61,7 @@ function keepOnlyDuplicates(lines: string[]): string[] {
 }
 
 function keepOnlyNotDuplicates(lines: string[]): string[] {
-  return Array.from(new Set(lines.filter((element, index, array) => (array.lastIndexOf(element) == array.indexOf(element)))));
+  return Array.from(new Set(lines.filter((element, index, array) => (array.lastIndexOf(element) === array.indexOf(element)))));
 }
 
 function removeBlanks(lines: string[]): void {
