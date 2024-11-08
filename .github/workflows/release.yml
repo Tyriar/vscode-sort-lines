@@ -23,9 +23,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
     - name: Install and build
-      run: |
-        yarn --frozen-lockfile
-        yarn compile
+      run: yarn --frozen-lockfile
+      env:
+        CI: true
+    - name: Build
+      run: yarn compile
+      env:
+        CI: true
+    - name: Build web
+      run: yarn package-web
       env:
         CI: true
     - name: Publish with vsce
