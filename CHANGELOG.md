@@ -1,3 +1,9 @@
+## 1.12.0
+
+- Add an editor context menu containing all commands ([#140](https://github.com/Tyriar/vscode-sort-lines/pull/140)) via [tisilent](https://github.com/tisilent)
+- Added `sortLines.keepOnlyNotDuplicateLines` command ([#132](https://github.com/Tyriar/vscode-sort-lines/pull/132)) via [almeidaxan](https://github.com/almeidaxan)
+- Fixed GitHub Actions CI ([#142](https://github.com/Tyriar/vscode-sort-lines/pull/142)) via [dotnetCarpenter](https://github.com/dotnetCarpenter)
+
 ## 1.11.0
 
 - Added `sortLines.ignoreUnselectedLastLine` which will ignore the last line if it's only selected because of the trailing \n on the previous line. This allows selecting lines to be sorted by clicking and dragging the editor line numbers ([#124](https://github.com/Tyriar/vscode-sort-lines/pull/124)) via [@gdlx](https://github.com/gdlx)
