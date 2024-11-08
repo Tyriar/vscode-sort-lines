@@ -8,11 +8,11 @@
     "url": "https://github.com/Tyriar/vscode-sort-lines/issues"
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "yarn compile",
     "compile": "tsc -p ./",
     "lint": "tslint ./src/*.ts",
     "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile",
+    "pretest": "yarn compile",
     "test": "node ./out/test/runTest.js",
     "compile-web": "webpack",
     "watch-web": "webpack --watch",
