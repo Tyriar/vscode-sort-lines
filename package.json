@@ -84,6 +84,10 @@
         "title": "Sort lines (keep only duplicated lines)"
       },
       {
+        "command": "sortLines.keepOnlyNotDuplicateLines",
+        "title": "Sort lines (keep only not duplicated lines)"
+      },
+      {
         "command": "sortLines.sortLinesShuffle",
         "title": "Sort lines (shuffle)"
       }
@@ -179,8 +183,12 @@
 					"group": "2_sortLines@12"
 				},
         {
+					"command": "sortLines.keepOnlyNotDuplicateLines",
+					"group": "2_sortLines@13"
+				},
+        {
           "command": "sortLines.sortLinesShuffle",
-          "group": "2_sortLines@13"
+          "group": "2_sortLines@14"
         }
       ]
     },
