@@ -23,8 +23,10 @@ jobs:
       env:
         CI: true
     - name: Test
-      uses: GabrielBB/xvfb-action@v1
-      with:
-        run: yarn test
+      run: yarn test
+      if: runner.os != 'Linux'
+    - name: Test on Linux
+      run: xvfb-run -a yarn test
+      if: runner.os == 'Linux'
     - name: Lint
       run: yarn lint
