@@ -1,6 +1,6 @@
 dist/
 node_modules/
 out/
-package-lock.json
 .vscode-test/
 *.vsix
+yarn.lock
