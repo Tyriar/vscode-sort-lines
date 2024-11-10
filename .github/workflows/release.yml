@@ -18,20 +18,20 @@ jobs:
         cache: yarn
         cache-dependency-path: yarn.lock
     - name: Install and build
-      run: yarn --frozen-lockfile
+      run: npm ci
       env:
         CI: true
     - name: Build
-      run: yarn compile
+      run: npm run compile
       env:
         CI: true
     - name: Build web
-      run: yarn package-web
+      run: npm run package-web
       env:
         CI: true
     - name: Publish with vsce
       run: |
-        yarn global add @vscode/vsce
+        npm install --global @vscode/vsce
         # Try to publish and ignore any errors (that version was already published)
         vsce publish -p $VSCE_TOKEN || true
       env:
