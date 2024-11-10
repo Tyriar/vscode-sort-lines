@@ -15,8 +15,7 @@ jobs:
       with:
         node-version: 20.x
         registry-url: 'https://npm.pkg.github.com'
-        cache: yarn
-        cache-dependency-path: yarn.lock
+        cache: npm
     - name: Install and build
       run: npm ci
       env:
