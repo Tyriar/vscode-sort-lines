@@ -7,7 +7,7 @@
   "bugs": {
     "url": "https://github.com/Tyriar/vscode-sort-lines/issues"
   },
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
