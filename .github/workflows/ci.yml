@@ -15,7 +15,6 @@ jobs:
       with:
         node-version: 20.x
         cache: npm
-        cache-dependency-path: package-lock.json
     - name: Install and build
       run: |
         npm ci
