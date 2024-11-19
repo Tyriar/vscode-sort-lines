@@ -14,19 +14,18 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 20.x
-        cache: yarn
-        cache-dependency-path: yarn.lock
+        cache: npm
     - name: Install and build
       run: |
-        yarn --frozen-lockfile
-        yarn compile
+        npm ci
+        npm run compile
       env:
         CI: true
     - name: Test
-      run: yarn test
+      run: npm test
       if: runner.os != 'Linux'
     - name: Test on Linux
-      run: xvfb-run -a yarn test
+      run: xvfb-run -a npm test
       if: runner.os == 'Linux'
     - name: Lint
-      run: yarn lint
+      run: npm run lint
